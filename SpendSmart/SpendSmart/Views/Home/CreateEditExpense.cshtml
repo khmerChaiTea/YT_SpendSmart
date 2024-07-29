@@ -1,0 +1,44 @@
+﻿@{
+    // Sets the title of the view to "Create / Edit".
+    ViewData["Title"] = "Create / Edit";
+}
+
+@model SpendSmart.Models.Expense
+
+<div class="text-center">
+    <!-- Displays a heading for the view, indicating that the user can create or edit an expense. -->
+    <h1 class="display-4">Create or edit an expense</h1>
+</div>
+
+<!-- Form for creating or editing an expense -->
+<!-- 
+    The form is configured to submit to the "ExpenseForm" action method of the "Home" controller.
+    Make sure the action method name and controller name match those in your HomeController.
+-->
+<form asp-action="ExpenseForm" asp-controller="Home">
+    <!-- Label for the Id input field -->
+    <label>Id</label>
+    <!-- Input field for the expense Id -->
+    <!-- 'asp-for' binds the input field to the 'Id' property of the Expense model -->
+    <input class="form-control" type="number" placeholder="0" asp-for="Id" />
+
+    <!-- Label for the Value input field -->
+    <label class="mt-4">Value $</label>
+    <!-- Input field for the monetary value of the expense -->
+    <!-- 'asp-for' binds the input field to the 'Value' property of the Expense model -->
+    <!-- 'step="0.01"' allows for decimal values to be entered -->
+    <input class="form-control" type="number" placeholder="0" asp-for="Value" step="0.01" />
+
+    <!-- Label for the Description input field -->
+    <label class="mt-4">Description</label>
+    <!-- Input field for the description of the expense -->
+    <!-- 'asp-for' binds the input field to the 'Description' property of the Expense model -->
+    <input class="form-control" type="text" placeholder="Add a description" asp-for="Description" />
+
+    <!-- Submit button for the form -->
+    <!-- 
+        The button will submit the form data to the server when clicked.
+        The form action is defined by 'asp-action' and 'asp-controller' attributes.
+    -->
+    <button class="btn btn-primary mt-4" type="submit">Ok</button>
+</form>
