@@ -1,7 +1,52 @@
 ﻿@{
+    // Set the title of the page to "Expenses".
     ViewData["Title"] = "Expenses";
 }
 
+@model List<Expense>
+
 <div class="text-center">
+    <!-- Display the main heading of the page. -->
     <h1 class="display-4">Expenses</h1>
+    <br />
+
+    <!-- Create a table to display the list of expenses. -->
+    <table class="table">
+        <thead>
+            <tr>
+                <!-- Table headers for the columns. -->
+                <th>
+                    Id
+                </th>
+                <th>
+                    Value
+                </th>
+                <th>
+                    Description
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                // Iterate over each Expense item in the model and create a table row for each.
+                foreach (var expense in Model)
+                {
+                    <tr>
+                        <!-- Display the Id of the expense in a table cell. -->
+                        <td>
+                            @expense.Id
+                        </td>
+                        <!-- Display the Value of the expense in a table cell. -->
+                        <td>
+                            @expense.Value
+                        </td>
+                        <!-- Display the Description of the expense in a table cell. -->
+                        <td>
+                            @expense.Description
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
 </div>

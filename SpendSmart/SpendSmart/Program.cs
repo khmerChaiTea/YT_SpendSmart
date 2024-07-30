@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using SpendSmart.Models;
+
 namespace SpendSmart
 {
     public class Program
@@ -10,6 +13,15 @@ namespace SpendSmart
             // Add services to the dependency injection container.
             // In this case, adding support for controllers with views (MVC pattern).
             builder.Services.AddControllersWithViews();
+
+            // Ensure that you have the following namespaces included:
+            // using Microsoft.EntityFrameworkCore;
+            // using SpendSmart.Models;
+            builder.Services.AddDbContext<SpendSmartDbContext>(options =>
+                // Configure the DbContext to use an in-memory database for testing or development purposes.
+                // Replace "SpendSmartDB" with your preferred database name.
+                options.UseInMemoryDatabase("SpendSmartDB")
+            );
 
             // Build the web application using the configured services.
             var app = builder.Build();
