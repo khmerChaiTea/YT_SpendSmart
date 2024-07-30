@@ -9,7 +9,9 @@
     <!-- Display the main heading of the page. -->
     <h1 class="display-4">Expenses</h1>
     <br />
-
+    <hr />
+    <h3>Total Expenses $@ViewBag.Expenses</h3>
+    <br />
     <!-- Create a table to display the list of expenses. -->
     <table class="table">
         <thead>
@@ -23,6 +25,9 @@
                 </th>
                 <th>
                     Description
+                </th>
+                <th>
+                    Actions
                 </th>
             </tr>
         </thead>
@@ -43,6 +48,10 @@
                         <!-- Display the Description of the expense in a table cell. -->
                         <td>
                             @expense.Description
+                        </td>
+                        <td>
+                            <a asp-action="CreateEditExpense" asp-route-id="@expense.Id">Edit</a>
+                            <a asp-action="DeleteExpense" asp-route-id="@expense.Id">Delete</a>
                         </td>
                     </tr>
                 }
